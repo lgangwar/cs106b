@@ -48,12 +48,14 @@ endif()
 set(HEADERS
     ${HEADERS}
     ${CMAKE_CURRENT_SOURCE_DIR}/assignment1.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/assignment2.h
     ${CMAKE_CURRENT_SOURCE_DIR}/lectures.h
 )
 
 set(SOURCES
     ${SOURCES}
     ${CMAKE_CURRENT_SOURCE_DIR}/assignment1.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/assignment2.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
 
