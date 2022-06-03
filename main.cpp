@@ -5,16 +5,47 @@
 #include <functional>
 #include "assignment1.h"
 #include "assignment2.h"
+#include "lectures.h"
 
 typedef void (Assignment1::StringSensor::*byrefremoval)(std::string&, std::string);
 
 void testAssignment1();
 void testAssignment2();
+void testLecture8();
+void testLecture9();
+void testLecture10();
+
 int main()
 {
-    testAssignment1();
-    testAssignment2();
+    //testLecture8();
+    //testAssignment1();
+    //testAssignment2();
+    //testLecture9();
+    testLecture10();
+
     return 0;
+}
+
+void testLecture10()
+{
+    std::string str = "abcd";
+    lecture::listSubsets(str);
+}
+
+void testLecture9()
+{
+    std::string test = "abcd";
+    lecture::ListPermutations(test);
+}
+
+void testLecture8()
+{
+    std::cout << std::boolalpha;
+    std::cout << lecture::power(2,3) << std::endl;
+    std::cout << lecture::isPalindrome("nan") << std::endl;
+
+    std::vector<int> vec {1,4,23,34,67,78,90};
+    std::cout << lecture::BinarySearch(vec, 0, int(vec.size())-1, 76) <<std::endl;
 }
 
 void testAssignment1()
