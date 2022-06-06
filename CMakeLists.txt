@@ -49,6 +49,7 @@ set(HEADERS
     ${HEADERS}
     ${CMAKE_CURRENT_SOURCE_DIR}/assignment1.h
     ${CMAKE_CURRENT_SOURCE_DIR}/assignment2.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/assignment3.h
     ${CMAKE_CURRENT_SOURCE_DIR}/lectures.h
 )
 

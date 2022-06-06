@@ -3,8 +3,10 @@
 #include <string>
 #include <queue>
 #include <functional>
+#include <set>
 #include "assignment1.h"
 #include "assignment2.h"
+#include "assignment3.h"
 #include "lectures.h"
 
 typedef void (Assignment1::StringSensor::*byrefremoval)(std::string&, std::string);
@@ -14,6 +16,7 @@ void testAssignment2();
 void testLecture8();
 void testLecture9();
 void testLecture10();
+void testAssignment3();
 
 int main()
 {
@@ -21,10 +24,24 @@ int main()
     //testAssignment1();
     //testAssignment2();
     //testLecture9();
-    testLecture10();
-
+    //testLecture10();
+    testAssignment3();
+    
     return 0;
 }
+
+void testAssignment3()
+{
+    std::vector<Assignment3::cityT> cities;
+    std::map<std::string, Assignment3::cityT> maps;
+
+    for(const auto city : cities)
+    {
+        auto key =std::to_string(city.m_Cordinate.x) + "-" +std::to_string(city.m_Cordinate.y);
+        maps[key] = city;
+     }
+}
+
 
 void testLecture10()
 {
@@ -102,4 +119,12 @@ void testAssignment2()
     myqueue.push(56);
     myqueue.push(78);
     Assignment2::reverseQueue(myqueue);
+
+    std::ifstream in;
+
+    in.open("CMakeLists.txt");
+    int most_frequent = 0;
+
+    if(!in.fail())
+        Assignment2::mostFrequentChar(in, most_frequent);
 }

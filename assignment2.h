@@ -1,6 +1,9 @@
 #include <iostream>
 #include <queue>
 #include <stack>
+#include <fstream>
+#include <map>
+#include <locale>
 
 namespace Assignment2
 {
@@ -58,5 +61,43 @@ namespace Assignment2
         
         while(htmlStr.find(br1))
         return true;
+    }
+
+    char mostFrequentChar(std::ifstream &mystream, int &numOccurance)
+    {
+        std::map<char, int> counter;
+        for (int i = 97; i <= 122; i++)
+            counter[char(i)] = 0;
+
+        while (true)
+        {
+            std::string str;
+            std::getline(mystream, str);
+
+            if (mystream.fail())
+                break;
+
+            // std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+            for (const auto &mycha : str)
+            {
+                if (((int)mycha >= 97 && (int)mycha <= 122) || ((int)mycha >= 65 && (int)mycha <= 90))
+                    counter[::tolower(mycha)]++;
+            }
+        }
+
+        // find max repeating char
+        int max = INT_MIN;
+        char max_repeat = '?';
+        for (const auto &val : counter)
+        {
+            if (val.second > max)
+            {
+                max = val.second;
+                max_repeat = val.first;
+            }
+        }
+
+        numOccurance = max;
+        return max_repeat;
     }
 } // namespace name
